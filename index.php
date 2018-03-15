@@ -38,9 +38,9 @@ foreach ($client->parseEvents() as $event) {
                                                         'title'=>'Menu',
                                                         'text'=>'Please select',
                                                         'defaultAction'=>array('type'=>'uri','label'=>'View detail','uri'=>'https://www.google.com.tw'),
-                                                        'actions'=>array(array('type'=>'postback','label'=>'Buy','data'=>'action=buy&itemid=123'),
-                                                                        array('type'=>'message','label'=>'Add to cart','text'=>'Add to cart'),
-                                                                        array('type'=>'uri','label'=>'View detail','uri'=>'https://www.google.com.tw')
+                                                        'actions'=>array(array('type'=>'postback','label'=>'php','data'=>'action=php&id=php'),
+                                                                        array('type'=>'message','label'=>'java','text'=>'java'),
+                                                                        array('type'=>'uri','label'=>'python','uri'=>'https://www.google.com.tw')
                                                                     )
                                         )
                                 )
@@ -53,7 +53,7 @@ foreach ($client->parseEvents() as $event) {
                                     array(  "type"=>"template",
                                             "altText"=>"this is a carousel template",
                                             "template"=>array(  "type"=>"carousel",
-                                                    "columns"=>array(array( "thumbnailImageUrl"=>"https://example.com/bot/images/item1.jpg",
+                                                    "columns"=>array(array( "thumbnailImageUrl"=>"https://upload.wikimedia.org/wikipedia/zh/8/88/Java_logo.png",
                                                                             "imageBackgroundColor"=>"#FFFFFF",
                                                                             "title"=>"this is menu",
                                                                             "text"=>"description",
@@ -61,11 +61,11 @@ foreach ($client->parseEvents() as $event) {
                                                                                                     "label"=>"View detail",
                                                                                                     "uri"=>"http://example.com/page/123"
                                                                                                 ),
-                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"Buy", "data"=>"action=buy&itemid=111"),
-                                                                                            array(  "type"=>"postback", "label"=>"Add to cart", "data"=>"action=add&itemid=111"),
-                                                                                            array(  "type"=>"uri", "label"=>"View detail", "uri"=>"http://example.com/page/111"),
+                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"php", "data"=>"action=php&id=php"),
+                                                                                            array(  "type"=>"postback", "label"=>"java", "data"=>"action=java&id=java"),
+                                                                                            array(  "type"=>"uri", "label"=>"python", "uri"=>"http://example.com/page/111"),
                                                                                         ),
-                                                                    ),array( "thumbnailImageUrl"=>"https://example.com/bot/images/item2.jpg",
+                                                                    ),array( "thumbnailImageUrl"=>"https://snowplowanalytics.com/assets/img/blog/2016/09/python-logo.png",
                                                                             "imageBackgroundColor"=>"#000000",
                                                                             "title"=>"this is menu",
                                                                             "text"=>"description",
@@ -73,9 +73,9 @@ foreach ($client->parseEvents() as $event) {
                                                                                                     "label"=>"View detail",
                                                                                                     "uri"=>"http://example.com/page/222"
                                                                                                 ),
-                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"Buy", "data"=>"action=buy&itemid=222"),
-                                                                                            array(  "type"=>"postback", "label"=>"Add to cart", "data"=>"action=add&itemid=222"),
-                                                                                            array(  "type"=>"uri", "label"=>"View detail", "uri"=>"http://example.com/page/222"),
+                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"python", "data"=>"action=python&id=python"),
+                                                                                            array(  "type"=>"postback", "label"=>"java", "data"=>"action=java&id=java"),
+                                                                                            array(  "type"=>"uri", "label"=>"php", "uri"=>"https://www.foolegg.com/wp-content/uploads/2012/06/php.png"),
                                                                                         ),
                                                                     )
                                                             ),
@@ -127,7 +127,7 @@ foreach ($client->parseEvents() as $event) {
                 'messages' => array(
                     array(
                         'type' => 'text',
-                        'text' => '這是postback'.$message['data']
+                        'text' => '這是postback->'.$message['data']
                     )
                 )
             ));
