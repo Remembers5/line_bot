@@ -23,6 +23,7 @@
  * Released under the MIT license
  * https://github.com/indigophp/hash-compat/blob/43a19f42093a0cd2d11874dff9d891027fc42214/LICENSE
  */
+
 if (!function_exists('hash_equals')) {
     defined('USE_MB_STRING') or define('USE_MB_STRING', function_exists('mb_strlen'));
 
