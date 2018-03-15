@@ -40,6 +40,8 @@ foreach ($client->parseEvents() as $event) {
                                                         'defaultAction'=>array('type'=>'uri','label'=>'View detail','uri'=>'https://www.google.com.tw'),
                                                         'actions'=>array(array('type'=>'postback','label'=>'php','data'=>'action=php&id=php'),
                                                                         array('type'=>'message','label'=>'java','text'=>'java'),
+                                                                         array('type'=>'message','label'=>'a','text'=>'a'),
+                                                                         array('type'=>'message','label'=>'b','text'=>'b'),
                                                                         array('type'=>'uri','label'=>'python','uri'=>'https://www.google.com.tw')
                                                                     )
                                         )
