@@ -18,7 +18,7 @@ foreach ($client->parseEvents() as $event) {
                                     'altText' => 'this is a confirm template',
                                     'template'=> array( 'type'=>'confirm',
                                                         'text'=>'Are you sure?',
-                                                        'actions'=>array(array('type'=>"message","label"=>"Yes","text"=>"yes"),array('type'=>"message","label"=>"No","text"=>"no"),array('type'=>"message","label"=>"No","text"=>"no"),array('type'=>"message","label"=>"No","text"=>"no"))
+                                                        'actions'=>array(array('type'=>"message","label"=>"Yes","text"=>"yes"),array('type'=>"message","label"=>"No","text"=>"no"))
                                         )
                                 )
                             )
