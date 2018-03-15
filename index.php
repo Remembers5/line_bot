@@ -97,7 +97,7 @@ foreach ($client->parseEvents() as $event) {
                                                            'columns'=>array(
                                                                         array('imageUrl'=>'https://example.com/bot/images/item1.jpg','action'=>array('type'=>'postback','label'=>'buy','data'=>'action=buy&itemid=111')),
                                                                         array('imageUrl'=>'https://example.com/bot/images/item2.jpg','action'=>array('type'=>'message','label'=>'Yes','text'=>'yes')),
-                                                                        array('imageUrl'=>'https://example.com/bot/images/item3.jpg','action'=>array('type'=>'uri','label'=>'View detail','uri'=>'http://example.com/page/222'))
+                                                                        array('imageUrl'=>'https://www.foolegg.com/wp-content/uploads/2012/06/php.png','action'=>array('type'=>'uri','label'=>'View detail','uri'=>'http://example.com/page/222'))
                                                                 )
                                                     )
                                                 )
