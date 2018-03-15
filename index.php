@@ -46,63 +46,6 @@ foreach ($client->parseEvents() as $event) {
                                 )
                             )
                         ));
-                    }elseif ($message['text']=="傳送") {
-                        $client->replyMessage(array(
-                            'replyToken' => $event['replyToken'],
-                            'messages' => array(
-                                    array(  "type"=>"template",
-                                            "altText"=>"this is a carousel template",
-                                            "template"=>array(  "type"=>"carousel",
-                                                    "columns"=>array(array( "thumbnailImageUrl"=>"https://example.com/bot/images/item1.jpg",
-                                                                            "imageBackgroundColor"=>"#FFFFFF",
-                                                                            "title"=>"this is menu",
-                                                                            "text"=>"description",
-                                                                            "defaultAction"=>array( "type"=>"uri",
-                                                                                                    "label"=>"View detail",
-                                                                                                    "uri"=>"http://example.com/page/123"
-                                                                                                ),
-                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"Buy", "data"=>"action=buy&itemid=111"),
-                                                                                            array(  "type"=>"postback", "label"=>"Add to cart", "data"=>"action=add&itemid=111"),
-                                                                                            array(  "type"=>"uri", "label"=>"View detail", "uri"=>"http://example.com/page/111"),
-                                                                                        ),
-                                                                    ),array( "thumbnailImageUrl"=>"https://example.com/bot/images/item2.jpg",
-                                                                            "imageBackgroundColor"=>"#000000",
-                                                                            "title"=>"this is menu",
-                                                                            "text"=>"description",
-                                                                            "defaultAction"=>array( "type"=>"uri",
-                                                                                                    "label"=>"View detail",
-                                                                                                    "uri"=>"http://example.com/page/222"
-                                                                                                ),
-                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"Buy", "data"=>"action=buy&itemid=222"),
-                                                                                            array(  "type"=>"postback", "label"=>"Add to cart", "data"=>"action=add&itemid=222"),
-                                                                                            array(  "type"=>"uri", "label"=>"View detail", "uri"=>"http://example.com/page/222"),
-                                                                                        ),
-                                                                    )
-                                                            ),
-                                                    "imageAspectRatio"=>"rectangle",
-                                                    "imageSize"=>"cover"
-                                            )
-                                        )
-                            )
-                        ));
-                    }elseif ($message['text']=="傳送2") {
-                        $client->replyMessage(array(
-                            'replyToken' => $event['replyToken'],
-                            'messages' => array(
-                                                array(
-                                                    'type'=>'template',
-                                                    'altText'=>'this is a image carousel template',
-                                                    'template'=>array(
-                                                           'type'=>'image_carousel',
-                                                           'columns'=>array(
-                                                                        array('imageUrl'=>'https://example.com/bot/images/item1.jpg','action'=>array('type'=>'postback','label'=>'buy','data'=>'action=buy&itemid=111')),
-                                                                        array('imageUrl'=>'https://example.com/bot/images/item2.jpg','action'=>array('type'=>'message','label'=>'Yes','text'=>'yes')),
-                                                                        array('imageUrl'=>'https://example.com/bot/images/item3.jpg','action'=>array('type'=>'uri','label'=>'View detail','uri'=>'http://example.com/page/222'))
-                                                                )
-                                                    )
-                                                )
-                            )
-                        ));
                     }else{
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
@@ -113,24 +56,12 @@ foreach ($client->parseEvents() as $event) {
                                 )
                             )
                         ));
-                    }
+
                     break;
                 default:
                     error_log("Unsupporeted message type: " . $message['type']);
                     break;
             }
-            break;
-        case 'postback':
-            $message = $event['postback'];
-            $client->replyMessage(array(
-                'replyToken' => $event['replyToken'],
-                'messages' => array(
-                    array(
-                        'type' => 'text',
-                        'text' => $message['data']
-                    )
-                )
-            ));
             break;
         default:
             error_log("Unsupporeted event type: " . $event['type']);
