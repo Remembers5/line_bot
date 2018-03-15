@@ -95,9 +95,9 @@ foreach ($client->parseEvents() as $event) {
                                                     'template'=>array(
                                                            'type'=>'image_carousel',
                                                            'columns'=>array(
-                                                                        array('imageUrl'=>'https://example.com/bot/images/item1.jpg','action'=>array('type'=>'postback','label'=>'buy','data'=>'action=buy&itemid=111')),
-                                                                        array('imageUrl'=>'https://example.com/bot/images/item2.jpg','action'=>array('type'=>'message','label'=>'Yes','text'=>'yes')),
-                                                                        array('imageUrl'=>'https://www.foolegg.com/wp-content/uploads/2012/06/php.png','action'=>array('type'=>'uri','label'=>'View detail','uri'=>'http://example.com/page/222'))
+                                                                        array('imageUrl'=>'https://snowplowanalytics.com/assets/img/blog/2016/09/python-logo.png','action'=>array('type'=>'postback','label'=>'python','data'=>'action=python&id=python')),
+                                                                        array('imageUrl'=>'https://upload.wikimedia.org/wikipedia/zh/8/88/Java_logo.png','action'=>array('type'=>'message','label'=>'java','text'=>'java')),
+                                                                        array('imageUrl'=>'https://www.foolegg.com/wp-content/uploads/2012/06/php.png','action'=>array('type'=>'uri','label'=>'php','uri'=>'http://example.com/page/222'))
                                                                 )
                                                     )
                                                 )
