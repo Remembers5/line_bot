@@ -104,6 +104,7 @@ foreach ($client->parseEvents() as $event) {
                             )
                         ));
                     }else{
+                        /*
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
                             'messages' => array(
@@ -111,6 +112,22 @@ foreach ($client->parseEvents() as $event) {
                                     'type' => 'text',
                                     'text'=>$message['text']
                                     //'text' => $event['source']['userId']
+                                )
+                            )
+                        ));
+                        */
+                        $client->replyMessage(array(
+                            'replyToken' => $event['replyToken'],
+                            'messages' => array(
+                                array(
+                                    "type"=>"imagemap",
+                                    "baseUrl"=>"https://example.com/bot/images/rm001",
+                                    "altText"=>"This is an imagemap",
+                                    "baseSize"=>array("height"=>1040,"width"=>1040),
+                                    "actions"=>array(
+                                            array("type"=>"uri","linkUri"=>"https://example.com/","area"=>array("x"=>0,"y"=>0,"width"=>520,"height"=>1040)),
+                                            array("type"=>"message","text"=>"Hello","area"=>array("x"=>520,"y"=>0,"width"=>520,"height"=>1040)),
+                                        )
                                 )
                             )
                         ));
@@ -138,3 +155,5 @@ foreach ($client->parseEvents() as $event) {
             break;
     }
 };
+
+
