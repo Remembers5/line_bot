@@ -123,10 +123,10 @@ foreach ($client->parseEvents() as $event) {
                                     "type"=>"imagemap",
                                     "baseUrl"=>"https://images3.alphacoders.com/653/6539.jpg",
                                     "altText"=>"This is an imagemap",
-                                    "baseSize"=>array("height"=>240,"width"=>240),
+                                    "baseSize"=>array("height"=>768,"width"=>1024),
                                     "actions"=>array(
-                                            array("type"=>"uri","linkUri"=>"https://example.com/","area"=>array("x"=>0,"y"=>0,"width"=>240,"height"=>240))
-                                            
+                                            array("type"=>"uri","linkUri"=>"https://example.com/","area"=>array("x"=>0,"y"=>0,"width"=>1024,"height"=>768)),
+                                            array("type"=>"message","text"=>"Hello","area"=>array("x"=>512,"y"=>0,"width"=>1024,"height"=>768))
                                         )
                                 )
                             )
