@@ -46,7 +46,7 @@ foreach ($client->parseEvents() as $event) {
                                 )
                             )
                         ));
-                    }elseif ($message['text']=="傳送") {
+                    }elseif ($message['text']=="傳送") { 
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
                             'messages' => array(
@@ -109,7 +109,7 @@ foreach ($client->parseEvents() as $event) {
                             'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text' => $message['text']
+                                    'text' => $event['source']['userId']
                                 )
                             )
                         ));
