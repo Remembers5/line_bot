@@ -119,16 +119,11 @@ foreach ($client->parseEvents() as $event) {
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
                             'messages' => array(
-
+                                array(
                                     "type"=>"imagemap",
-                                    "baseUrl"=>"https://images3.alphacoders.com/653/6539.jpg",
-                                    "altText"=>"This is an imagemap",
-                                    "baseSize"=>array("height"=>768,"width"=>1024),
-                                    "actions"=>array(
-                                            array("type"=>"uri","linkUri"=>"https://example.com/","area"=>array("x"=>0,"y"=>0,"width"=>1024,"height"=>768)),
-                                            array("type"=>"message","text"=>"Hello","area"=>array("x"=>512,"y"=>0,"width"=>1024,"height"=>768)),
-                                        )
-                                
+                                    "originalContentUrl"=>"https://images3.alphacoders.com/653/6539.jpg",
+                                    "previewImageUrl"=>"https://images3.alphacoders.com/653/6539.jpg",
+                                )
                             )
                         ));
                     }
