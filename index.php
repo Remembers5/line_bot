@@ -122,7 +122,12 @@ foreach ($client->parseEvents() as $event) {
                                 array(
                                     "type"=>"imagemap",
                                     "baseUrl"=>"https://images3.alphacoders.com/653/6539.jpg",
-                                    "altText"=>"This is an imagemap"
+                                    "altText"=>"This is an imagemap",
+                                    "baseSize"=>array("height"=>768,"width"=>1024),
+                                    "actions"=>array(
+                                            array("type"=>"uri","linkUri"=>"https://example.com/","area"=>array("x"=>0,"y"=>0,"width"=>1024,"height"=>768))
+                                            
+                                        )
                                 )
                             )
                         ));
