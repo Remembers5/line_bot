@@ -121,7 +121,7 @@ foreach ($client->parseEvents() as $event) {
                             'messages' => array(
                                 array(
                                     "type"=>"imagemap",
-                                    "baseUrl"=>"https://example.com/bot/images/rm001",
+                                    "baseUrl"=>"https://www.foolegg.com/wp-content/uploads/2012/06/php.png",
                                     "altText"=>"This is an imagemap",
                                     "baseSize"=>array("height"=>1040,"width"=>1040),
                                     "actions"=>array(
