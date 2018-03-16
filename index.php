@@ -120,7 +120,7 @@ foreach ($client->parseEvents() as $event) {
                             'replyToken' => $event['replyToken'],
                             'messages' => array(
                                 array(
-                                    "type"=>"imagemap",
+                                    "type"=>"image",
                                     "originalContentUrl"=>"https://images3.alphacoders.com/653/6539.jpg",
                                     "previewImageUrl"=>"https://images3.alphacoders.com/653/6539.jpg",
                                 )
