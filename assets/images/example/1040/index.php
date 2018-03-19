@@ -14,19 +14,5 @@ list($width, $height) = getimagesize($path);
 $newwidth = round($width * $percent);
 $newheight = round($height * $percent);
 $dst_im = imagecreatetruecolor($newwidth, $newheight);
-if ($img_type == "jpeg"){
-    $src_im = imagecreatefromjpeg($path);
-    imagecopyresized($dst_im, $src_im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height); // 調整大小
-    imagejpeg($dst_im); //輸出調整大小後的圖像
-}
-if ($img_type == "png"){
-    $src_im = imagecreatefrompng($path);
-    imagecopyresized($dst_im, $src_im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height); // 調整大小
-    imagepng($dst_im); //輸出調整大小後的圖像
-}
-if ($img_type == "gif"){
-    $src_im = imagecreatefromgif($path);
-    imagecopyresized($dst_im, $src_im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height); // 調整大小
-    imagegif($dst_im); //輸出調整大小後的圖像
-}
+
 print_r($img_type);
