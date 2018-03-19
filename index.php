@@ -17,8 +17,8 @@ foreach ($client->parseEvents() as $event) {
                 'baseUrl' => 'https://tidal-velocity-196003.appspot.com', // 圖片網址 (可調整大小 240px, 300px, 460px, 700px, 1040px)
                 'altText' => 'Example imagemap', // 替代文字
                 'baseSize' => array(
-                    'height' => 240, // 圖片寬
-                    'width' => 240 // 圖片高
+                    'height' => 1040, // 圖片寬
+                    'width' => 1040 // 圖片高
                 ),
                 'actions' => array(
                     array(
@@ -27,18 +27,18 @@ foreach ($client->parseEvents() as $event) {
                         'area' => array(
                             'x' => 0, // 點擊位置 X 軸
                             'y' => 0, // 點擊位置 Y 軸
-                            'width' => 120, // 點擊範圍寬度
-                            'height' => 240 // 點擊範圍高度
+                            'width' => 520, // 點擊範圍寬度
+                            'height' => 1040 // 點擊範圍高度
                         )
                     ),
                     array(
                         'type' => 'message', // 類型 (用戶發送訊息)
                         'text' => 'Hello', // 發送訊息
                         'area' => array(
-                            'x' => 120, // 點擊位置 X 軸
+                            'x' => 520, // 點擊位置 X 軸
                             'y' => 0, // 點擊位置 Y 軸
-                            'width' => 120, // 點擊範圍寬度
-                            'height' => 240 // 點擊範圍高度
+                            'width' => 520, // 點擊範圍寬度
+                            'height' => 1040 // 點擊範圍高度
                         )
                     )
                 )
