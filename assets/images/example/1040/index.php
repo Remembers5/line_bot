@@ -7,4 +7,4 @@ switch($type[2]){ // 判斷圖片的類型
     case 2 : $img_type = "jpeg"; break;  
     case 3 : $img_type = "png"; break;  
 }
-echo "qwe";
+echo "$type";
