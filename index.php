@@ -31,19 +31,6 @@ foreach ($client->parseEvents() as $event) {
                 'baseSize' => array(
                     'height' => 1040, // 圖片寬
                     'width' => 1040 // 圖片高
-                ),
-                'actions' => array(
-                    array(
-                        'type' => 'uri', // 類型 (網址)
-                        'label'=>'https://github.com/GoneTone/line-example-bot-php',
-                        'linkUri' => 'https://github.com/GoneTone/line-example-bot-php', // 連結網址
-                        'area' => array(
-                            'x' => 0, // 點擊位置 X 軸
-                            'y' => 0, // 點擊位置 Y 軸
-                            'width' => 1040, // 點擊範圍寬度
-                            'height' => 1040 // 點擊範圍高度
-                        )
-                    )
                 )
             )
         )
