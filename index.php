@@ -13,9 +13,9 @@ if (strtolower($message['text']) == "imagemap" || $message['text'] == "地圖"){
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(
-            array(
+            array(prj
                 'type' => 'imagemap', // 訊息類型 (圖片地圖)
-                'baseUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example', // 圖片網址 (可調整大小 240px, 300px, 460px, 700px, 1040px)
+                'baseUrl' => 'https://tidal-velocity-196003.appspot.com/', // 圖片網址 (可調整大小 240px, 300px, 460px, 700px, 1040px)
                 'altText' => 'Example imagemap', // 替代文字
                 'baseSize' => array(
                     'height' => 240, // 圖片寬
