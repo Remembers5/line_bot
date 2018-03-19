@@ -1,4 +1,5 @@
 <?php
+ini_set('php_gd2.dll', 1);
 $path = "../example.jpg"; // 圖片所在網址
 $type = getimagesize($path); // 取得圖片資訊
 switch($type[2]){ // 判斷圖片的類型
