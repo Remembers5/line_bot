@@ -8,11 +8,6 @@ switch($type[2]){ // 判斷圖片的類型
     case 3 : $img_type = "png"; break;  
 }
 header("Content-type: image/" . $img_type); // 設定圖檔格式
-$percent = 1 / (1040 / 1040); // 縮略圖比例 公式：1 / (原始圖大小 / 調整後大小)
-// 縮略圖尺寸
-list($width, $height) = getimagesize($path);
-$newwidth = round($width * $percent);
-$newheight = round($height * $percent);
-$dst_im = imagecreatetruecolor($newwidth, $newheight);
 
 print_r($img_type);
+
