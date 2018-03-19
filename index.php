@@ -26,7 +26,7 @@ foreach ($client->parseEvents() as $event) {
         'messages' => array(
             array(
                 'type' => 'imagemap', // 訊息類型 (圖片地圖)
-                'baseUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example/', // 圖片網址 (可調整大小 240px, 300px, 460px, 700px, 1040px)
+                'baseUrl' => 'https://remembers5.herokuapp.com/assets/images/example/1040/', // 圖片網址 (可調整大小 240px, 300px, 460px, 700px, 1040px)
                 'altText' => 'img', // 替代文字
                 'baseSize' => array(
                     'height' => 1040, // 圖片寬
