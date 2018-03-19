@@ -9,6 +9,18 @@ foreach ($client->parseEvents() as $event) {
             $message = $event['message'];
             switch ($message['type']) {
                 case 'text':
+                    if($$message['text']=='hello'){
+    $client->replyMessage(array(
+        'replyToken' => $event['replyToken'],
+        'messages' => array(
+            array(
+                'type' => 'text', // 訊息類型 (文字)
+                'text' => 'Hello, world!' // 回復訊息
+            )
+        )
+    ));
+                    }
+                    else{
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(
@@ -45,6 +57,7 @@ foreach ($client->parseEvents() as $event) {
             )
         )
     ));
+                    }
                     break;
                 default:
                     error_log("Unsupporeted message type: " . $message['type']);
