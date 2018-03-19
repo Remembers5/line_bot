@@ -9,25 +9,14 @@ foreach ($client->parseEvents() as $event) {
             $message = $event['message'];
             switch ($message['type']) {
                 case 'text':
-                    if($message['text']=='hello'){
-    $client->replyMessage(array(
-        'replyToken' => $event['replyToken'],
-        'messages' => array(
-            array(
-                'type' => 'text', // 訊息類型 (文字)
-                'text' => 'hello!' // 回復訊息
-            )
-        )
-    ));
-                    }
-                    else{
+if (strtolower($message['text']) == "imagemap" || $message['text'] == "地圖"){
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(
             array(
                 'type' => 'imagemap', // 訊息類型 (圖片地圖)
-                'baseUrl' => 'https://remembers5.herokuapp.com/assets/images/example/1040/', // 圖片網址 (可調整大小 240px, 300px, 460px, 700px, 1040px)
-                'altText' => 'img', // 替代文字
+                'baseUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example', // 圖片網址 (可調整大小 240px, 300px, 460px, 700px, 1040px)
+                'altText' => 'Example imagemap', // 替代文字
                 'baseSize' => array(
                     'height' => 1040, // 圖片寬
                     'width' => 1040 // 圖片高
@@ -57,7 +46,7 @@ foreach ($client->parseEvents() as $event) {
             )
         )
     ));
-                    }
+}
                     break;
                 default:
                     error_log("Unsupporeted message type: " . $message['type']);
