@@ -15,7 +15,7 @@ foreach ($client->parseEvents() as $event) {
         'messages' => array(
             array(
                 'type' => 'text', // 訊息類型 (文字)
-                'text' => 'world!' // 回復訊息
+                'text' => 'hello world!' // 回復訊息
             )
         )
     ));
@@ -35,21 +35,12 @@ foreach ($client->parseEvents() as $event) {
                 'actions' => array(
                     array(
                         'type' => 'uri', // 類型 (網址)
+                        'label'=>'https://github.com/GoneTone/line-example-bot-php',
                         'linkUri' => 'https://github.com/GoneTone/line-example-bot-php', // 連結網址
                         'area' => array(
                             'x' => 0, // 點擊位置 X 軸
                             'y' => 0, // 點擊位置 Y 軸
-                            'width' => 520, // 點擊範圍寬度
-                            'height' => 1040 // 點擊範圍高度
-                        )
-                    ),
-                    array(
-                        'type' => 'message', // 類型 (用戶發送訊息)
-                        'text' => 'Hello', // 發送訊息
-                        'area' => array(
-                            'x' => 520, // 點擊位置 X 軸
-                            'y' => 0, // 點擊位置 Y 軸
-                            'width' => 520, // 點擊範圍寬度
+                            'width' => 1040, // 點擊範圍寬度
                             'height' => 1040 // 點擊範圍高度
                         )
                     )
