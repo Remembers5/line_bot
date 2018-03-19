@@ -29,5 +29,7 @@ if ($img_type == "gif"){
     imagecopyresized($dst_im, $src_im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height); // 調整大小
     imagegif($dst_im); //輸出調整大小後的圖像
 }
+
+
 imagedestroy($dst_im);
 imagedestroy($src_im);
