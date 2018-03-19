@@ -13,9 +13,10 @@ $percent = 1 / (1040 / 1040); // 縮略圖比例 公式：1 / (原始圖大小 /
 list($width, $height) = getimagesize($path);
 $newwidth = round($width * $percent);
 $newheight = round($height * $percent);
-$dst_im = imagecreatetruecolor($newwidth, $newheight);
+//$dst_im = imagecreatetruecolor($newwidth, $newheight);
 if ($img_type == "jpeg"){
-    $src_im = imagecreatefromjpeg($path);
+    ;
+    //$src_im = imagecreatefromjpeg($path);
     //imagecopyresized($dst_im, $src_im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height); // 調整大小
     //imagejpeg($dst_im); //輸出調整大小後的圖像
 }
