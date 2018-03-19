@@ -15,7 +15,7 @@ foreach ($client->parseEvents() as $event) {
         'messages' => array(
             array(
                 'type' => 'text', // 訊息類型 (文字)
-                'text' => 'Hello, world!' // 回復訊息
+                'text' => 'world!' // 回復訊息
             )
         )
     ));
@@ -26,8 +26,8 @@ foreach ($client->parseEvents() as $event) {
         'messages' => array(
             array(
                 'type' => 'imagemap', // 訊息類型 (圖片地圖)
-                'baseUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example/1040/', // 圖片網址 (可調整大小 240px, 300px, 460px, 700px, 1040px)
-                'altText' => 'Example imagemap', // 替代文字
+                'baseUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example/1040', // 圖片網址 (可調整大小 240px, 300px, 460px, 700px, 1040px)
+                'altText' => 'img', // 替代文字
                 'baseSize' => array(
                     'height' => 1040, // 圖片寬
                     'width' => 1040 // 圖片高
