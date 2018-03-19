@@ -1,6 +1,6 @@
 <?php
 
-$path = "../example.jpg"; // 圖片所在網址
+$path= "../example.jpg"; // 圖片所在網址
 $type = getimagesize($path); // 取得圖片資訊
 switch($type[2]){ // 判斷圖片的類型
     case 1 : $img_type = "gif"; break;  
@@ -13,12 +13,12 @@ $percent = 1 / (1040 / 1040); // 縮略圖比例 公式：1 / (原始圖大小 /
 list($width, $height) = getimagesize($path);
 $newwidth = round($width * $percent);
 $newheight = round($height * $percent);
-$dst_im = imagecreatetruecolor($newwidth, $newheight);
+//$dst_im = imagecreatetruecolor($newwidth, $newheight);
 if ($img_type == "jpeg"){
-    ;
-    //$src_im = imagecreatefromjpeg($path);
-    //imagecopyresized($dst_im, $src_im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height); // 調整大小
-    //imagejpeg($dst_im); //輸出調整大小後的圖像
+    $src_im = imagecreatefromjpeg($path);
+    imagecopyresized($dst_im, $src_im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height); // 調整大小
+    imagejpeg($dst_im); //輸出調整大小後的圖像
 }
 
-print_r($img_type);
+//imagedestroy($dst_im);
+imagedestroy($src_im);
