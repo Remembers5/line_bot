@@ -17,10 +17,6 @@ if (strtolower($message['text']) == "imagemap" || $message['text'] == "地圖"){
                 'type' => 'imagemap', // 訊息類型 (圖片地圖)
                 'baseUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example/1040/', // 圖片網址 (可調整大小 240px, 300px, 460px, 700px, 1040px)
                 'altText' => 'Example imagemap', // 替代文字
-                'baseSize' => array(
-                    'height' => 1040, // 圖片寬
-                    'width' => 1040 // 圖片高
-                ),
                 'actions' => array(
                     array(
                         'type' => 'uri', // 類型 (網址)
