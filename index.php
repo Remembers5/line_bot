@@ -74,7 +74,6 @@ foreach ($client->parseEvents() as $event) {
                                                                                                     "uri"=>"http://example.com/page/222"
                                                                                                 ),
                                                                             "actions"=>array(array( "type"=>"postback", "label"=>"python", "data"=>"action=python&id=python"),
-                                                                                             array( "type"=>"postback", "label"=>"111", "data"=>"action=111&id=python"),
                                                                                             array(  "type"=>"postback", "label"=>"java", "data"=>"action=java&id=java"),
                                                                                             array(  "type"=>"uri", "label"=>"php", "uri"=>"https://www.foolegg.com/wp-content/uploads/2012/06/php.png"),
                                                                                         ),
