@@ -15,7 +15,7 @@ foreach ($client->parseEvents() as $event) {
         'messages' => array(
             array(
                 'type' => 'text', // 訊息類型 (文字)
-                'text' => 'hello world!' // 回復訊息
+                'text' => 'hello!' // 回復訊息
             )
         )
     ));
