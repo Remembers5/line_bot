@@ -1,4 +1,5 @@
 <?php
+/*
 ini_set( 'display_errors', '1' );
     
 $path = "../example.jpg"; // 圖片所在網址
@@ -32,4 +33,6 @@ if ($img_type == "gif"){
 }
 imagedestroy($dst_im);
 imagedestroy($src_im);
+*/
+phpinfo();
 ?>
