@@ -116,21 +116,42 @@ foreach ($client->parseEvents() as $event) {
                             )
                         ));
                         */
-                        $client->replyMessage(array(
-                            'replyToken' => $event['replyToken'],
-                            'messages' => array(
-                                array(
-                                    "type"=>"imagemap",
-                                    "baseUrl"=>"https://images3.alphacoders.com/653/6539.jpg",
-                                    "altText"=>"This is an imagemap",
-                                    "baseSize"=>array("height"=>768,"width"=>1024),
-                                    "actions"=>array(
-                                            array("type"=>"uri","linkUri"=>"https://example.com/","area"=>array("x"=>0,"y"=>0,"width"=>1024,"height"=>768)),
-                                            array("type"=>"message","text"=>"Hello","area"=>array("x"=>512,"y"=>0,"width"=>1024,"height"=>768))
-                                        )
-                                )
-                            )
-                        ));
+    $client->replyMessage(array(
+        'replyToken' => $event['replyToken'],
+        'messages' => array(
+            array(
+                'type' => 'imagemap', // 訊息類型 (圖片地圖)
+                'baseUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example', // 圖片網址 (可調整大小 240px, 300px, 460px, 700px, 1040px)
+                'altText' => 'Example imagemap', // 替代文字
+                'baseSize' => array(
+                    'height' => 1040, // 圖片寬
+                    'width' => 1040 // 圖片高
+                ),
+                'actions' => array(
+                    array(
+                        'type' => 'uri', // 類型 (網址)
+                        'linkUri' => 'https://github.com/GoneTone/line-example-bot-php', // 連結網址
+                        'area' => array(
+                            'x' => 0, // 點擊位置 X 軸
+                            'y' => 0, // 點擊位置 Y 軸
+                            'width' => 520, // 點擊範圍寬度
+                            'height' => 1040 // 點擊範圍高度
+                        )
+                    ),
+                    array(
+                        'type' => 'message', // 類型 (用戶發送訊息)
+                        'text' => 'Hello', // 發送訊息
+                        'area' => array(
+                            'x' => 520, // 點擊位置 X 軸
+                            'y' => 0, // 點擊位置 Y 軸
+                            'width' => 520, // 點擊範圍寬度
+                            'height' => 1040 // 點擊範圍高度
+                        )
+                    )
+                )
+            )
+        )
+    ));
                     }
                     break;
                 default:
