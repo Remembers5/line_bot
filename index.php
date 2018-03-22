@@ -161,13 +161,13 @@ foreach ($client->parseEvents() as $event) {
             }
             break;
         case 'postback':
-            $message = $event['postback'];
+            $postback = $event['postback'];
             $client->replyMessage(array(
                 'replyToken' => $event['replyToken'],
                 'messages' => array(
                     array(
                         'type' => 'text',
-                        'text' => '這是postback->'.$message['data']
+                        'text' => '這是postback->'.$postback['data']
                     )
                 )
             ));
@@ -177,5 +177,3 @@ foreach ($client->parseEvents() as $event) {
             break;
     }
 };
-
-
