@@ -55,7 +55,7 @@ foreach ($client->parseEvents() as $event) {
                             'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text'=>$message['text']
+                                    'text'=>serialize($event)
                                 )
                             )
                         ));
