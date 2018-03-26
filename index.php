@@ -146,7 +146,7 @@ foreach ($client->parseEvents() as $event) {
                             'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text'=>'ee'
+                                    'text'=>$message['type']
                                     
                                 )
                             )
@@ -166,7 +166,7 @@ foreach ($client->parseEvents() as $event) {
                 'messages' => array(
                     array(
                         'type' => 'text',
-                        'text' => '這是postback->'.$postback['data']
+                        'text' => '這是postback->'.$postback['type']
                     )
                 )
             ));
