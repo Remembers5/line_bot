@@ -146,7 +146,7 @@ foreach ($client->parseEvents() as $event) {
                             'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text'=>$event['type']
+                                    'text'=>$event['1']['type']
                                     
                                 )
                             )
