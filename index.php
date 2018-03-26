@@ -26,7 +26,7 @@ foreach ($client->parseEvents() as $event) {
                                                                                                     "uri"=>"http://example.com/page/123"
                                                                                                 ),
                                                                             "actions"=>array(array( "type"=>"postback", "label"=>"php","displayText"=>"php","data"=>"action=php&id=php"),
-                                                                                            array(  "type"=>"message", "label"=>"java", "text"=>"java"),
+                                                                                            array(  "type"=>"message", "label"=>"java", "text"=>"javaisgood"),
                                                                                             array(  "type"=>"uri", "label"=>"python", "uri"=>"http://example.com/page/111"),
                                                                                         ),
                                                                     ),array( "thumbnailImageUrl"=>"https://snowplowanalytics.com/assets/img/blog/2016/09/python-logo.png",
