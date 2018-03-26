@@ -92,7 +92,7 @@ foreach ($client->parseEvents() as $event) {
                             'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text'=>serialize($event)
+                                    'text'=>$event['text']
                                 )
                             )
                         ));
@@ -111,7 +111,7 @@ foreach ($client->parseEvents() as $event) {
                 'messages' => array(
                     array(
                         'type' => 'text',
-                        'text' => '這是postback->'.$postback['data']
+                        'text' => $postback['label'].'='.$postback['text'].
                     )
                 )
             ));
