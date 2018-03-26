@@ -24,9 +24,9 @@ foreach ($client->parseEvents() as $event) {
                                                                                                     "label"=>"View detail",
                                                                                                     "uri"=>"http://example.com/page/123"
                                                                                                 ),
-                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"php", "data"=>"action=php&id=php"),
+                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"php",'displaytext'=>'php', "data"=>"action=php&id=php"),
                                                                                             array(  "type"=>"postback", "label"=>"java", "data"=>"action=java&id=java"),
-                                                                                            array(  "type"=>"uri", "label"=>"python", "uri"=>"http://example.com/page/111"),
+                                                                                            array(  "type"=>"postback", "label"=>"python",'text'=>'pythonisgood', "data"=>"action=python&id=python"),
                                                                                         ),
                                                                     ),array( "thumbnailImageUrl"=>"https://snowplowanalytics.com/assets/img/blog/2016/09/python-logo.png",
                                                                             "imageBackgroundColor"=>"#000000",
