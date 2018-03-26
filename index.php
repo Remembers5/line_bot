@@ -141,13 +141,14 @@ foreach ($client->parseEvents() as $event) {
                             )
                         ));
                     }else{
-                        
+           $ar=array('1','2','3','4','5');
+$output=implode("",$ar);         
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
                             'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text'=>'{(dasd:ee,qwee:ee)}'
+                                    'text'=>$output
                                     
                                 )
                             )
