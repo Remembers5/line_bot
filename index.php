@@ -147,8 +147,8 @@ foreach ($client->parseEvents() as $event) {
                             'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text'=>$message['text']
-                                    //'text' => $event['source']['userId']
+                                    'text'=>'{(dasd:ee,qwee:ee)}'
+                                    
                                 )
                             )
                         ));
