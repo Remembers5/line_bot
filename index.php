@@ -166,7 +166,7 @@ foreach ($client->parseEvents() as $event) {
                 'messages' => array(
                     array(
                         'type' => 'text',
-                        'text' => '這是postback->'.$postback['type']
+                        'text' => $event['type']
                     )
                 )
             ));
