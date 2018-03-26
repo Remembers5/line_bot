@@ -141,14 +141,13 @@ foreach ($client->parseEvents() as $event) {
                             )
                         ));
                     }else{
-           $ar=array('1','2','3','4','5');
-$output=implode("",$ar);         
+           $ar=array('1','2','3','4','5');   
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
                             'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text'=>$output
+                                    'text'=>$ar
                                     
                                 )
                             )
