@@ -9,7 +9,44 @@ foreach ($client->parseEvents() as $event) {
             $message = $event['message'];
             switch ($message['type']) {
                 case 'text':
-                    if ($message['text']=="Carousel") { 
+                    if($message['text']=="Confirm"){
+                        $client->replyMessage(array(
+                            'replyToken' => $event['replyToken'],
+                            'messages' => array(
+                                array(
+                                    'type' => 'template',
+                                    'altText' => 'this is a confirm template',
+                                    'template'=> array( 'type'=>'confirm',
+                                                        'text'=>'Are you sure?',
+                                                        'actions'=>array(array('type'=>"message","label"=>"Yes","text"=>"yes"),array('type'=>"message","label"=>"No","text"=>"no"))
+                                        )
+                                )
+                            )
+                        ));
+                    }elseif($message['text']=="Buttons") {
+                        $client->replyMessage(array(
+                            'replyToken' => $event['replyToken'],
+                            'messages' => array(
+                                array(
+                                    'type' => 'template',
+                                    'altText' => 'This is a buttons template',
+                                    'template'=> array( 'type'=>'buttons',
+                                                        'thumbnailImageUrl'=>'https://www.pkstep.com/wp-content/uploads/2015/09/LINE@tech1.png',
+                                                        'imageAspectRatio'=>'rectangle',
+                                                        'imageSize'=>'cover',
+                                                        'imageBackgroundColor'=>'#FFFFFF',
+                                                        'title'=>'Menu',
+                                                        'text'=>'Please select',
+                                                        'defaultAction'=>array('type'=>'uri','label'=>'View detail','uri'=>'https://www.google.com.tw'),
+                                                        'actions'=>array(array('type'=>'postback','label'=>'php','data'=>'action=php&id=php'),
+                                                                        array('type'=>'message','label'=>'java','text'=>'java'),
+                                                                        array('type'=>'uri','label'=>'python','uri'=>'https://www.google.com.tw')
+                                                                    )
+                                        )
+                                )
+                            )
+                        ));
+                    }elseif ($message['text']=="Carousel") { 
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
                             'messages' => array(
@@ -24,9 +61,9 @@ foreach ($client->parseEvents() as $event) {
                                                                                                     "label"=>"View detail",
                                                                                                     "uri"=>"http://example.com/page/123"
                                                                                                 ),
-                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"php",'displaytext'=>'php' "data"=>"action=php&id=php"),
+                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"php", "data"=>"action=php&id=php"),
                                                                                             array(  "type"=>"postback", "label"=>"java", "data"=>"action=java&id=java"),
-                                                                                            array(  "type"=>"postback", "label"=>"python",'text'=>'pythonisgood' "uri"=>"http://example.com/page/111"),
+                                                                                            array(  "type"=>"uri", "label"=>"python", "uri"=>"http://example.com/page/111"),
                                                                                         ),
                                                                     ),array( "thumbnailImageUrl"=>"https://snowplowanalytics.com/assets/img/blog/2016/09/python-logo.png",
                                                                             "imageBackgroundColor"=>"#000000",
@@ -48,14 +85,70 @@ foreach ($client->parseEvents() as $event) {
                                         )
                             )
                         ));
+                    }elseif ($message['text']=="Image carousel") {
+                        $client->replyMessage(array(
+                            'replyToken' => $event['replyToken'],
+                            'messages' => array(
+                                                array(
+                                                    'type'=>'template',
+                                                    'altText'=>'this is a image carousel template',
+                                                    'template'=>array(
+                                                           'type'=>'image_carousel',
+                                                           'columns'=>array(
+                                                                        array('imageUrl'=>'https://snowplowanalytics.com/assets/img/blog/2016/09/python-logo.png','action'=>array('type'=>'postback','label'=>'python','data'=>'action=python&id=python')),
+                                                                        array('imageUrl'=>'https://upload.wikimedia.org/wikipedia/zh/8/88/Java_logo.png','action'=>array('type'=>'message','label'=>'java','text'=>'java')),
+                                                                        array('imageUrl'=>'https://www.foolegg.com/wp-content/uploads/2012/06/php.png','action'=>array('type'=>'uri','label'=>'php','uri'=>'http://example.com/page/222'))
+                                                                )
+                                                    )
+                                                )
+                            )
+                        ));
+                    }elseif ($message['text']=="Imagemap") {
+                        $client->replyMessage(array(
+                            'replyToken' => $event['replyToken'],
+                            'messages' => array(
+                                array(
+                                    "type"=>"imagemap",
+                                    "baseUrl"=>"https://tidal-velocity-196003.appspot.com",
+                                    "altText"=>"This is an imagemap",
+                                    'baseSize' => array(
+                                        'height' => 1040, 
+                                        'width' => 1040 
+                                    ),
+                                    'actions' => array(
+                                        array(
+                                            'type' => 'uri', 
+                                            'linkUri' => 'https://github.com/GoneTone/line-example-bot-php', 
+                                            'area' => array(
+                                                'x' => 0, 
+                                                'y' => 0,
+                                                'width' => 520, 
+                                                'height' => 1040 
+                                            )
+                                        ),
+                                        array(
+                                            'type' => 'message', 
+                                            'text' => 'Hello', 
+                                            'area' => array(
+                                                'x' => 520, 
+                                                'y' => 0, 
+                                                'width' => 520, 
+                                                'height' => 1040 
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        ));
                     }else{
+                        
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
                             'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text'=>serialize($event)
-                                    
+                                    'text'=>$message['text']
+                                    //'text' => $event['source']['userId']
                                 )
                             )
                         ));
@@ -74,7 +167,7 @@ foreach ($client->parseEvents() as $event) {
                 'messages' => array(
                     array(
                         'type' => 'text',
-                        'text' => serialize($event)
+                        'text' => '這是postback->'.$postback['data']
                     )
                 )
             ));
