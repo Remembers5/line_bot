@@ -1,179 +1,95 @@
-<?php 
-require_once('./LINEBotTiny.php');
-$channelAccessToken = 'RlvjJ75b/Y6pZvkRubi439aOHnbo4DLIby0emSb7yHg0rvijrUwLIotURErm06Zo7/YO+xFacGJd2xwZfD+dOCmKguVOo8ZBBhhwBP4EW6lrfmbxw6ErquSTObl7fXrnNPARYpZpCiqWxzqp49xzOwdB04t89/1O/w1cDnyilFU=';
-$channelSecret = '09be4e00415d8079d87f1a834165bb2b';
-$client = new LINEBotTiny($channelAccessToken, $channelSecret);
-foreach ($client->parseEvents() as $event) {
-    switch ($event['type']) {
-        case 'message':
-            $message = $event['message'];
-            switch ($message['type']) {
-                case 'text':
-                    if($message['text']=="Confirm"){
-                        $client->replyMessage(array(
-                            'replyToken' => $event['replyToken'],
-                            'messages' => array(
-                                array(
-                                    'type' => 'template',
-                                    'altText' => 'this is a confirm template',
-                                    'template'=> array( 'type'=>'confirm',
-                                                        'text'=>'Are you sure?',
-                                                        'actions'=>array(array('type'=>"message","label"=>"Yes","text"=>"yes"),array('type'=>"message","label"=>"No","text"=>"no"))
-                                        )
-                                )
-                            )
-                        ));
-                    }elseif($message['text']=="Buttons") {
-                        $client->replyMessage(array(
-                            'replyToken' => $event['replyToken'],
-                            'messages' => array(
-                                array(
-                                    'type' => 'template',
-                                    'altText' => 'This is a buttons template',
-                                    'template'=> array( 'type'=>'buttons',
-                                                        'thumbnailImageUrl'=>'https://www.pkstep.com/wp-content/uploads/2015/09/LINE@tech1.png',
-                                                        'imageAspectRatio'=>'rectangle',
-                                                        'imageSize'=>'cover',
-                                                        'imageBackgroundColor'=>'#FFFFFF',
-                                                        'title'=>'Menu',
-                                                        'text'=>'Please select',
-                                                        'defaultAction'=>array('type'=>'uri','label'=>'View detail','uri'=>'https://www.google.com.tw'),
-                                                        'actions'=>array(array('type'=>'postback','label'=>'php','data'=>'action=php&id=php'),
-                                                                        array('type'=>'message','label'=>'java','text'=>'java'),
-                                                                        array('type'=>'uri','label'=>'python','uri'=>'https://www.google.com.tw')
-                                                                    )
-                                        )
-                                )
-                            )
-                        ));
-                    }elseif ($message['text']=="Carousel") { 
-                        $client->replyMessage(array(
-                            'replyToken' => $event['replyToken'],
-                            'messages' => array(
-                                    array(  "type"=>"template",
-                                            "altText"=>"this is a carousel template",
-                                            "template"=>array(  "type"=>"carousel",
-                                                    "columns"=>array(array( "thumbnailImageUrl"=>"https://upload.wikimedia.org/wikipedia/zh/8/88/Java_logo.png",
-                                                                            "imageBackgroundColor"=>"#FFFFFF",
-                                                                            "title"=>"this is menu",
-                                                                            "text"=>"description",
-                                                                            "defaultAction"=>array( "type"=>"uri",
-                                                                                                    "label"=>"View detail",
-                                                                                                    "uri"=>"http://example.com/page/123"
-                                                                                                ),
-                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"php", "data"=>"action=php&id=php"),
-                                                                                            array(  "type"=>"postback", "label"=>"java", "data"=>"action=java&id=java"),
-                                                                                            array(  "type"=>"uri", "label"=>"python", "uri"=>"http://example.com/page/111"),
-                                                                                        ),
-                                                                    ),array( "thumbnailImageUrl"=>"https://snowplowanalytics.com/assets/img/blog/2016/09/python-logo.png",
-                                                                            "imageBackgroundColor"=>"#000000",
-                                                                            "title"=>"this is menu",
-                                                                            "text"=>"description",
-                                                                            "defaultAction"=>array( "type"=>"uri",
-                                                                                                    "label"=>"View detail",
-                                                                                                    "uri"=>"http://example.com/page/222"
-                                                                                                ),
-                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"python", "data"=>"action=python&id=python"),
-                                                                                            array(  "type"=>"postback", "label"=>"java", "data"=>"action=java&id=java"),
-                                                                                            array(  "type"=>"uri", "label"=>"php", "uri"=>"https://www.foolegg.com/wp-content/uploads/2012/06/php.png"),
-                                                                                        ),
-                                                                    )
-                                                            ),
-                                                    "imageAspectRatio"=>"rectangle",
-                                                    "imageSize"=>"cover"
-                                            )
-                                        )
-                            )
-                        ));
-                    }elseif ($message['text']=="Image carousel") {
-                        $client->replyMessage(array(
-                            'replyToken' => $event['replyToken'],
-                            'messages' => array(
-                                                array(
-                                                    'type'=>'template',
-                                                    'altText'=>'this is a image carousel template',
-                                                    'template'=>array(
-                                                           'type'=>'image_carousel',
-                                                           'columns'=>array(
-                                                                        array('imageUrl'=>'https://snowplowanalytics.com/assets/img/blog/2016/09/python-logo.png','action'=>array('type'=>'postback','label'=>'python','data'=>'action=python&id=python')),
-                                                                        array('imageUrl'=>'https://upload.wikimedia.org/wikipedia/zh/8/88/Java_logo.png','action'=>array('type'=>'message','label'=>'java','text'=>'java')),
-                                                                        array('imageUrl'=>'https://www.foolegg.com/wp-content/uploads/2012/06/php.png','action'=>array('type'=>'uri','label'=>'php','uri'=>'http://example.com/page/222'))
-                                                                )
-                                                    )
-                                                )
-                            )
-                        ));
-                    }elseif ($message['text']=="Imagemap") {
-                        $client->replyMessage(array(
-                            'replyToken' => $event['replyToken'],
-                            'messages' => array(
-                                array(
-                                    "type"=>"imagemap",
-                                    "baseUrl"=>"https://tidal-velocity-196003.appspot.com",
-                                    "altText"=>"This is an imagemap",
-                                    'baseSize' => array(
-                                        'height' => 1040, 
-                                        'width' => 1040 
-                                    ),
-                                    'actions' => array(
-                                        array(
-                                            'type' => 'uri', 
-                                            'linkUri' => 'https://github.com/GoneTone/line-example-bot-php', 
-                                            'area' => array(
-                                                'x' => 0, 
-                                                'y' => 0,
-                                                'width' => 520, 
-                                                'height' => 1040 
-                                            )
-                                        ),
-                                        array(
-                                            'type' => 'message', 
-                                            'text' => 'Hello', 
-                                            'area' => array(
-                                                'x' => 520, 
-                                                'y' => 0, 
-                                                'width' => 520, 
-                                                'height' => 1040 
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        ));
-                    }else{
-           $ar=array('1','2','3','4','5');   
-                        $client->replyMessage(array(
-                            'replyToken' => $event['replyToken'],
-                            'messages' => array(
-                                array(
-                                    'type' => 'text',
-                                    'text'=>$ar
-                                    
-                                )
-                            )
-                        ));
-                        
-                    }
-                    break;
-                default:
-                    error_log("Unsupporeted message type: " . $message['type']);
-                    break;
-            }
-            break;
-        case 'postback':
-            $postback = $event['postback'];
-            $client->replyMessage(array(
-                'replyToken' => $event['replyToken'],
-                'messages' => array(
-                    array(
-                        'type' => 'text',
-                        'text' => '這是postback->'.$postback['data']
-                    )
-                )
-            ));
-            break;
-        default:
-            error_log("Unsupporeted event type: " . $event['type']);
-            break;
-    }
-};
+<?php
+function GetIP(){
+ if(!empty($_SERVER["HTTP_CLIENT_IP"])){
+  $cip = $_SERVER["HTTP_CLIENT_IP"];
+ }
+ elseif(!empty($_SERVER["HTTP_X_FORWARDED_FOR"])){
+  $cip = $_SERVER["HTTP_X_FORWARDED_FOR"];
+ }
+ elseif(!empty($_SERVER["REMOTE_ADDR"])){
+  $cip = $_SERVER["REMOTE_ADDR"];
+ }
+ else{
+  $cip = "無法取得IP位址！";
+ }
+ return $cip;
+}
+echo GetIP();
+?> 
+
+<?php
+error_reporting (E_ERROR | E_WARNING | E_PARSE);
+if($HTTP_SERVER_VARS["HTTP_X_FORWARDED_FOR"]){
+ $ip = $HTTP_SERVER_VARS["HTTP_X_FORWARDED_FOR"];
+}
+elseif($HTTP_SERVER_VARS["HTTP_CLIENT_IP"]){
+ $ip = $HTTP_SERVER_VARS["HTTP_CLIENT_IP"];
+}
+elseif ($HTTP_SERVER_VARS["REMOTE_ADDR"]){
+ $ip = $HTTP_SERVER_VARS["REMOTE_ADDR"];
+}
+elseif (getenv("HTTP_X_FORWARDED_FOR")){
+ $ip = getenv("HTTP_X_FORWARDED_FOR");
+}
+elseif (getenv("HTTP_CLIENT_IP")){
+ $ip = getenv("HTTP_CLIENT_IP");
+}
+elseif (getenv("REMOTE_ADDR")){
+ $ip = getenv("REMOTE_ADDR");
+}
+else{
+ $ip = "Unknown";
+}
+echo $ip;
+?>
+
+<?php
+$iipp = $_SERVER["REMOTE_ADDR"];
+echo $iipp ;
+?>
+
+<?php
+$user_IP = ($_SERVER["HTTP_VIA"]) ? $_SERVER["HTTP_X_FORWARDED_FOR"] : $_SERVER["REMOTE_ADDR"];
+$user_IP = ($user_IP) ? $user_IP : $_SERVER["REMOTE_ADDR"];
+echo $user_IP
+?>
+
+<?php
+function get_real_ip()
+{
+ $ip=false;
+ if(!empty($_SERVER["HTTP_CLIENT_IP"])){
+  $ip = $_SERVER["HTTP_CLIENT_IP"];
+ }
+ if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+  $ips = explode (", ", $_SERVER['HTTP_X_FORWARDED_FOR']);
+  if($ip){
+   array_unshift($ips, $ip); $ip = FALSE;
+  }
+  for($i = 0; $i < count($ips); $i++){
+   if (!eregi ("^(10|172\.16|192\.168)\.", $ips[$i])){
+    $ip = $ips[$i];
+    break;
+   }
+  }
+ }
+ return($ip ? $ip : $_SERVER['REMOTE_ADDR']);
+}
+echo get_real_ip();
+?>
+
+<?php
+if(getenv('HTTP_CLIENT_IP')){
+ $onlineip = getenv('HTTP_CLIENT_IP');
+}
+elseif(getenv('HTTP_X_FORWARDED_FOR')){
+ $onlineip = getenv('HTTP_X_FORWARDED_FOR');
+}
+elseif(getenv('REMOTE_ADDR')){
+ $onlineip = getenv('REMOTE_ADDR');
+}
+else{
+ $onlineip = $HTTP_SERVER_VARS['REMOTE_ADDR'];
+}
+echo $onlineip;
+?>
