@@ -55,8 +55,7 @@ foreach ($client->parseEvents() as $event) {
                             'messages' => array(
                                 array(
                                     'type' => 'text',
-                                    'text'=>$message['text']
-                                    //'text' => $event['source']['userId']
+                                    'text'=>serialize($event)
                                 )
                             )
                         ));
@@ -75,7 +74,7 @@ foreach ($client->parseEvents() as $event) {
                 'messages' => array(
                     array(
                         'type' => 'text',
-                        'text' => '這是postback->'.$postback['data']
+                        'text' => serialize($event)
                     )
                 )
             ));
