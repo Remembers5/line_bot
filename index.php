@@ -49,43 +49,6 @@ foreach ($client->parseEvents() as $event) {
                                         )
                             )
                         ));
-                    }elseif ($message['text']=="Imagemap") {
-                        $client->replyMessage(array(
-                            'replyToken' => $event['replyToken'],
-                            'messages' => array(
-                                array(
-                                    "type"=>"imagemap",
-                                    "baseUrl"=>"https://tidal-velocity-196003.appspot.com",
-                                    "altText"=>"This is an imagemap",
-                                    'baseSize' => array(
-                                        'height' => 1040, 
-                                        'width' => 1040 
-                                    ),
-                                    'actions' => array(
-                                        array(
-                                            'type' => 'uri', 
-                                            'linkUri' => 'https://github.com/GoneTone/line-example-bot-php', 
-                                            'area' => array(
-                                                'x' => 0, 
-                                                'y' => 0,
-                                                'width' => 520, 
-                                                'height' => 1040 
-                                            )
-                                        ),
-                                        array(
-                                            'type' => 'message', 
-                                            'text' => 'Hello', 
-                                            'area' => array(
-                                                'x' => 520, 
-                                                'y' => 0, 
-                                                'width' => 520, 
-                                                'height' => 1040 
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        ));
                     }else{
                         $client->replyMessage(array(
                             'replyToken' => $event['replyToken'],
@@ -111,7 +74,7 @@ foreach ($client->parseEvents() as $event) {
                 'messages' => array(
                     array(
                         'type' => 'text',
-                        'text' => $postback['label'].'='.$postback['text'].
+                        'text' => $postback['label'].'='.$postback['text']
                     )
                 )
             ));
