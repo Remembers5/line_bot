@@ -36,10 +36,10 @@ foreach ($client->parseEvents() as $event) {
                                                                                                     "label"=>"View detail",
                                                                                                     "uri"=>"http://example.com/page/222"
                                                                                                 ),
-                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"python", "data"=>"action=python&id=python"),
-                                                                                            array(  "type"=>"postback", "label"=>"java", "data"=>"action=java&id=java"),
-                                                                                            array(  "type"=>"uri", "label"=>"php", "uri"=>"https://www.foolegg.com/wp-content/uploads/2012/06/php.png"),
-                                                                                        ),
+                                                                             "actions"=>array(array( "type"=>"postback", "label"=>"php","displayText"=>"php","data"=>"action=php&id=php"),
+                                                                                             array(  "type"=>"message", "label"=>"java", "text"=>"javaisgood"),
+-                                                                                            array(  "type"=>"uri", "label"=>"python", "uri"=>"http://example.com/page/111")
+                                                                                         ),
                                                                     )
                                                             ),
                                                     "imageAspectRatio"=>"rectangle",
