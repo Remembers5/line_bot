@@ -2,7 +2,6 @@
 require_once('./LINEBotTiny.php');
 $channelAccessToken = 'RlvjJ75b/Y6pZvkRubi439aOHnbo4DLIby0emSb7yHg0rvijrUwLIotURErm06Zo7/YO+xFacGJd2xwZfD+dOCmKguVOo8ZBBhhwBP4EW6lrfmbxw6ErquSTObl7fXrnNPARYpZpCiqWxzqp49xzOwdB04t89/1O/w1cDnyilFU=';
 $channelSecret = '09be4e00415d8079d87f1a834165bb2b';
-
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
@@ -25,8 +24,9 @@ foreach ($client->parseEvents() as $event) {
                                                                                                     "label"=>"View detail",
                                                                                                     "uri"=>"http://example.com/page/123"
                                                                                                 ),
-                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"php","displayText"=>"php","data"=>"action=php&id=php"),
-                                                                                            array(  "type"=>"message", "label"=>"java", "text"=>"javaisgood")
+                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"php",'displaytext'=>'php' "data"=>"action=php&id=php"),
+                                                                                            array(  "type"=>"postback", "label"=>"java", "data"=>"action=java&id=java"),
+                                                                                            array(  "type"=>"postback", "label"=>"python",'text'=>'pythonisgood' "uri"=>"http://example.com/page/111"),
                                                                                         ),
                                                                     ),array( "thumbnailImageUrl"=>"https://snowplowanalytics.com/assets/img/blog/2016/09/python-logo.png",
                                                                             "imageBackgroundColor"=>"#000000",
@@ -36,10 +36,10 @@ foreach ($client->parseEvents() as $event) {
                                                                                                     "label"=>"View detail",
                                                                                                     "uri"=>"http://example.com/page/222"
                                                                                                 ),
-                                                                             "actions"=>array(array( "type"=>"postback", "label"=>"php","displayText"=>"php","data"=>"action=php&id=php"),
-                                                                                             array(  "type"=>"message", "label"=>"java", "text"=>"javaisgood"),
--                                                                                            array(  "type"=>"uri", "label"=>"python", "uri"=>"http://example.com/page/111")
-                                                                                         ),
+                                                                            "actions"=>array(array( "type"=>"postback", "label"=>"python", "data"=>"action=python&id=python"),
+                                                                                            array(  "type"=>"postback", "label"=>"java", "data"=>"action=java&id=java"),
+                                                                                            array(  "type"=>"uri", "label"=>"php", "uri"=>"https://www.foolegg.com/wp-content/uploads/2012/06/php.png"),
+                                                                                        ),
                                                                     )
                                                             ),
                                                     "imageAspectRatio"=>"rectangle",
@@ -55,6 +55,7 @@ foreach ($client->parseEvents() as $event) {
                                 array(
                                     'type' => 'text',
                                     'text'=>serialize($event)
+                                    
                                 )
                             )
                         ));
@@ -79,6 +80,7 @@ foreach ($client->parseEvents() as $event) {
             ));
             break;
         default:
+            error_log("Unsupporeted event type: " . $event['type']);
             break;
     }
 };
